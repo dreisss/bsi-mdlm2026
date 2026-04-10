@@ -1,0 +1,157 @@
+\documentclass[12pt, a4paper, twoside, english, brazil]{article}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage[T1]{fontenc}
+
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\newenvironment{solution}[1][]{\noindent\textbf{Solução#1: \\} }
+
+% -----------------------------------------------------------------------------
+
+\title{Matemática Discreta e Lógica Matemática - Lista 01}
+\author{Funções de Primeiro Grau (10/04/2026)}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}[\bfseries 1.]
+  \item Seja a função $p(s)=7+2.5s$, que calcula o preço (R\$), em
+    função do espaço(s) percorridos em $km$. Quanto se irá pagar ao
+    andar 3 $km$ e 9 $km$.
+
+    \begin{solution}\\
+      Preço para 3: $p(3)=7+2.5\cdot 3=7+ 5.5 = 12.5$\\
+      Preço para 9: $p(9)=7+2.5\cdot 9=7+ 22.5 = 29.5$
+    \end{solution}
+
+  \item Esboce o gráfico das funções $f(x)=2x+3$, $g(x)=4x+3$,
+    $p(x)=-3x-2$ e $q(x)=-9x-2$.
+
+    \begin{solution}
+      \begin{tikzpicture}
+        \begin{axis}[
+            axis lines = center,
+            xlabel = \(x\),ylabel ={\(y\)},
+            xtick distance=0.5, ytick distance=1,
+            xmax=1, xmin=-3,
+            ymax=5, ymin=-5,
+            grid,
+            legend pos=north west
+          ]
+
+          \addplot [domain=-2:2,color=red]{2 * x + 3};
+          \addplot [domain=-2:2,color=green]{4 * x + 3};
+          \addplot [domain=-2:2,color=blue]{-3 * x - 2};
+          \addplot [domain=-2:2,color=purple]{-9 * x - 2};
+
+          \addlegendentry{$f(x)$}
+          \addlegendentry{$g(x)$}
+          \addlegendentry{$p(x)$}
+          \addlegendentry{$q(x)$}
+        \end{axis}
+      \end{tikzpicture}
+    \end{solution}
+
+  \item Com base na Figura abaixo, encontre a reta $r(x)=ax+b$ que
+    passa por esses 2 pontos.
+
+    \begin{multicols}{2}
+      \begin{tikzpicture}
+        \begin{axis}[
+            nodes near coords,
+            axis lines = center,
+            xlabel = \(x\),ylabel ={\(y\)},
+            xmin=0, xmax=6,
+            ymin=0, ymax=7,
+            ytick distance=1,
+            grid
+          ]
+          \addplot+ [
+            only marks,
+            point meta=explicit symbolic,
+          ] coordinates {
+            (3,6) [A]
+            (5,2) [B]
+          };
+        \end{axis}
+
+      \end{tikzpicture}
+
+      \begin{solution}
+        Dados os pontos podemos montar o sistema de duas variáveis:
+
+        \noindent
+
+        \begin{equation}
+          \begin{cases}
+            3a+b=6\\
+            5a+b=2
+          \end{cases}
+        \end{equation}
+
+        Subtraindo a primeira da segunda obtemos:\\
+        $-2a=4\implies a=-2$\\
+        e substituindo em na segunda, obtemos:\\
+        $5\cdot (-2)+b=2\implies b=12$
+
+        Portanto: $r(x)=-2x+12$
+      \end{solution}
+    \end{multicols}
+
+    \newpage
+
+  \item Encontre a raiz da função $h(x)=-2x+6$ e desenhe o gráfico se
+    baseando no coeficiente linear e sua raiz.
+
+    \begin{solution}
+      Sabendo que a raiz de $h(x)$ é quando $h(x)=0$ temos: $0=-2x+6$,
+      logo a raiz é $x=\frac{-6}{-2}=3$
+
+      \begin{tikzpicture}
+        \begin{axis}[
+            axis lines = center,
+            xlabel = \(x\),ylabel ={\(y\)},
+            xmax=5, xmin=-2,
+            ymax=8, ymin=-2,
+            grid,
+          ]
+          \addplot [domain=-10:10,color=blue]{-2 * x + 6};
+        \end{axis}
+      \end{tikzpicture}
+    \end{solution}
+
+  \item Um objeto lançado verticalmente para cima, tem sua velocidade
+    ($m/s$) descrita pela função (modelo) $v(t)=18t-216$.
+    \begin{enumerate}
+      \item Qual a sua velocidade inicial?
+      \item Qual a velocidade em $t=6s$ e $t=14s$
+      \item Quando o objeto alcança a altura máxima?
+    \end{enumerate}
+
+    \begin{solution}
+      \hbox
+
+      \begin{enumerate}
+        \item Tomando $t=0$ obtemos $v_0=-216$, ou $216 m/s$ para cima.
+        \item $v(6)=-120$ e $v(14)=36$, ou $120 m/s$ para cima e $36
+          m/s$ para baixo, respectivamente.
+        \item Quando a velocidade é nula. Ou seja $v(t)=0\implies t=27 s$.
+      \end{enumerate}
+
+    \end{solution}
+
+\end{enumerate}
+
+\end{document}
