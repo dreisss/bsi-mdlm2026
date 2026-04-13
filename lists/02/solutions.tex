@@ -1,0 +1,159 @@
+\documentclass[12pt, a4paper, twoside, english, brazil]{article}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage[T1]{fontenc}
+
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\newenvironment{solution}[1][]{\noindent\textbf{Solução#1:} }
+
+% -----------------------------------------------------------------------------
+
+\title{Matemática Discreta e Lógica Matemática - Lista 02}
+\author{Funções de Primeiro Grau (13/04/2026)}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}[\bfseries 1.]
+    % Questão 1
+  \item Seja a função $\text{salário}(v)=1621+0.06v$, que calcula o
+    salário $s$ (R\$) comissionado, em função do valor de venda $v$
+    (R\$) mensal. Responda:
+  \begin{enumerate}[\bfseries a)]
+    \item Caso o empregado não venda no mês, qual seu salário?
+    \item E se vender R\$ 150.000,00?
+    \item Haverá um valor máximo de salário? Por que?
+  \end{enumerate}
+
+  \begin{solution}
+  \begin{enumerate}[\bfseries a)]
+    \item A venda seria $v=0$, então: $s(0)=1621+0.06\cdot0=\text R\$ 1621,00$
+    \item $s(150.000)=1621+0.06\cdot 150.000=\text R\$10.621,00$
+    \item Não, pois ele se comporta como uma função afim crescente,
+      que aumenta infinitamente
+  \end{enumerate}
+\end{solution}
+
+% Questão 2
+\item Esboce o gráfico das funções $p(t)=4-4t$ e $q(t)=-8t+4$
+
+\begin{solution}\\
+  \begin{tikzpicture}
+    \begin{axis}[
+        axis lines = center,
+        xlabel = \(x\),ylabel ={\(y\)},
+        grid,
+      ]
+
+      \addplot [domain=-2:2,color=red]{-4 * x + 4};
+      \addplot [domain=-2:2,color=blue]{-8 * x + 4};
+
+      \addlegendentry{$p(x)$}
+      \addlegendentry{$q(x)$}
+    \end{axis}
+  \end{tikzpicture}
+\end{solution}
+
+% Questão 3
+\item Segundo da prefeitura de Santarém, o nível do Rio Tapajós em
+2024 (24) foi de 576cm e em 2025 (25) de 710cm. Supondo que o nível
+varie linearmente, encontre o modelo (função) $\text{nivel}(t)=at+b$.
+Calcule o nível do rio no ano atual.
+
+\begin{solution}
+  Temos os pontos $A(24, 576)$ e $B(25, 710)$. Aplicando na equação da reta:
+  \hbox
+
+  $$
+  \begin{cases}
+    24a+b=576\\
+    25a+b=710
+  \end{cases}
+  \implies
+  \begin{cases}
+    \text{II} -\text{I}\implies a=134\\
+    \text{Aplicando $a$ em I}\implies 24\cdot 134+b=576\implies $b = -2640$
+  \end{cases}
+  $$
+
+  Portanto $n(t)=134t-2640$ e $n(26)=134\cdot 26-2640=844\text{ cm}$
+\end{solution}
+
+\newpage
+
+% Questão 4
+\item Encontre a raiz da função $m(x)=-4x+8$ e desenhe o gráfico se
+baseando no coeficiente linear e sua raiz.
+
+\begin{solution}
+  Para $m(x)=0$ temos $0=-4x+8\implies x=\frac{-8}{-4}=2$
+
+  \begin{tikzpicture}
+    \begin{axis}[
+        axis lines = center,
+        xlabel = \(x\),ylabel ={\(y\)},
+        grid,
+      ]
+
+      \addplot [domain=-2:3,color=red]{-4 * x + 8};
+    \end{axis}
+  \end{tikzpicture}
+\end{solution}
+
+% Questão 5
+\item José verificou que no 15° dia do ano o saldo em sua conta
+corrente era de R\$2000,00. Devido a dívidas, no 85° seu saldo era de
+$\text R\$-1500,00$. Supondo uma evolução linear de seu saldo, responda:
+\begin{enumerate}[\bfseries a)]
+\item Encontre o modelo $\text{saldo}(t)=at+b$
+\item Quanto José tinha em conta no dia 5°
+\item Em que dia o valor do saldo foi 0 (zero)?
+\item Para quais intervalos de tempo $t$, o $\text{saldo}(t)>0$ e
+  $\text{saldo}(t)<0.$
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}[\bfseries a)]
+\item Temos os pontos $A(15, 2000)$ e $B(85, -1500)$. Portanto:\\
+  \hbox
+
+  $$
+  \begin{cases}
+    15a+b=2000\\
+    85a+b=-1500
+  \end{cases}
+  \implies
+  \begin{cases}
+    \text{II}-\text{I}\implies 70a=-3500\implies a=-50\\
+    \text{Aplicando em I}\implies 15\cdot -50+b=2000\implies b=2750
+  \end{cases}
+  $$
+
+  Logo $s(t)=-50t+2750$
+
+\item $s(5)=\text R\$2500,00$
+
+\item $s(t)=0\implies 0=-50t+2750\implies t=55$
+
+\item Considerando a raiz $t=55$ e sabendo que a função é decrescente:\\
+  O saldo será positivo quando $t<55$\\
+  O saldo será negativo quando $t>55$
+
+\end{enumerate}
+
+\end{solution}
+
+\end{enumerate}
+\end{document}
