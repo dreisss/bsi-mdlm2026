@@ -1,0 +1,120 @@
+\documentclass[12pt, a4paper, twoside, english, brazil]{article}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{gensymb}
+
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\newenvironment{solution}[1][]{\noindent\textbf{Solução#1:} }
+
+% -----------------------------------------------------------------------------
+
+\title{Matemática Discreta e Lógica Matemática - Lista 03}
+\author{Davi Reis - Funções do Segundo Grau (24/04/2026)}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}[\bfseries 1.]
+    % Questão 1
+  \item Seja a função $\text{altura}(t)=-4.9t^2+50t+2$, que calcula a
+    altura ($m$), de um objeto lançado verticalmente para cima, em
+    função do tempo $t$ ($s$), responda:
+  \begin{enumerate}[\bfseries a)]
+    \item Qual a altura inicial do objeto?
+    \item A altura em $t=2s$ e $t=4s$?
+    \item Em que instante o objeto toca o solo?
+    \item Qual foi a altura máxima atingida pelo objeto?
+  \end{enumerate}
+
+  \begin{solution}
+  \begin{enumerate}[\bfseries a)]
+    \item $\text{altura}(0)=0+0+2=2m$
+    \item $\text{altura}(2)=-4.9\cdot4+50\cdot2+2=82.4m$\\
+      $\text{altura}(4)=-4.9\cdot16+50\cdot4+2=123.6m$
+    \item $-4.9t^2+50t+2=0\implies \Delta = 50^2-4\cdot(-4.9)\cdot2=2539.2$\\
+      $t=\frac{-50\pm\sqrt{2539.2}}{2\cdot(-4.9)}\approx\frac{-50\pm50.39047529}{−9.8}\approx\frac{100.39}{9.8}\approx10.24s$
+    \item $t_{max}=\frac{-50}{2\cdot(-4.9)}\approx5.10s$\\
+      $\text{altura}_{max}=-4.9\cdot(5.10)^2+50\cdot5.10+2\approx129.55m$
+  \end{enumerate}
+\end{solution}
+
+% Questão 2
+\item O saldo da conta corrente (milhares) de Pedro, ao longo do ano
+de 2026, é dado em função dos meses $m$ (meses: janeiro = 1,
+fevereiro = 2 e etc).
+$$\text{saldo}(m)=m^2-10m+16$$
+Responda:
+\begin{enumerate}[\bfseries a)]
+\item Qual o saldo da conta em dezembro de 2025 ($m=0$)?
+\item Quanto ele terá em dezembro de 2026?
+\item Quando ele teve o saldo 0 (zero)?
+\item Quanto foi o saldo mínimo?
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}[\bfseries a)]
+\item $\text{saldo}(0)=16\text{ mil}$
+\item $\text{saldo}(12)=12^2-10\cdot12+16=40\text{ mil}$
+\item $m^2-10m+16=0\implies \Delta=(-10)^2-4\cdot1\cdot16=36$\\
+  $m=\frac{-(-10)\pm 6}{2}\implies \text{fevereiro (2) e agosto (8)}
+\item $m_{min}=\frac{-(-10)}{2\cdot 1}=5\text{ (maio)}$\\
+  $\text{saldo}_{min}=5^2-10\cdot 5+16=-9\text{ mil}$
+\end{enumerate}
+\end{solution}
+
+% Questão 3
+\item Determinado satélite demora 10h para completar sua orbita em
+torno da terra. Durante certo período o satélite fica encoberto pela
+Terra, não recebendo luz solar, o que faz sua temperatura despencar.
+A temperatura média $T$ ($C$) de seus instrumentos é descrita pelo
+modelo $T(h)=2h^2-20h+32$ em função das horas $h$. Responda:
+\begin{enumerate}[\bfseries a)]
+\item Calcule a temperatura nas horas $h=1$, $h=7$ e $h=9$.
+\item Qual a temperatura mínima?
+\item Quando a temperatura fica igual a 0 (zero)?
+\item Para quais intervalos de tempo $h$, a temperatura é positiva
+($T(h)>0$) e quando é negativa ($T(h)<0$). Esboce o gráfico.
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}[\bfseries a)]
+\item $T(1)=2\cdot 1^2-20\cdot1+32=14\degree\text{C}$\\
+$T(7)=2\cdot7^2-20\cdot 7+32=-10\degree\text{C}$\\
+$T(9)=2\cdot9^2-20\cdot 9+32=14\degree\text{C}$
+\item $h_{min}=\frac{-(-20)}{2\cdot 2}=5h$\\
+$T_{min}=2\cdot(5)^2-20\cdot 5+32=-18\degree\text{C}$
+\item $2h^2-20h+32=0\implies h^2-10h+16=0\implies h=
+\begin{cases}2h\\8h
+\end{cases}$
+\item Fica positiva para $h<2$ ou para $h>8$, e fica negativa para $2<h<8$:
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = center,
+    xlabel = \(x\),ylabel ={\(y\)},
+    xtick distance=2,
+    grid,
+  ]
+
+  \addplot [domain=-10:20,color=blue]{2 * x ^ 2 - 20 * x + 32};
+
+  \addlegendentry{$T(h)$}
+\end{axis}
+\end{tikzpicture}
+\end{enumerate}
+\end{solution}
+
+\end{enumerate}
+\end{document}
