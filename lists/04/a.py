@@ -9,7 +9,9 @@
 #
 # Use d^2 = (x2 − x1)^2 + (y2 − y1)^2
 
-from math import sqrt
+from math import sqrt, cos, sin, pi
+import matplotlib.pyplot as plt
+from numpy import linspace
 
 input_str1 = "Digite as coordenadas do centro A (xc yc): "
 xc, yc = [float(v) for v in input(input_str1).split(" ")]
@@ -25,3 +27,16 @@ if d <= r:
     print("O ponto está dentro da circunferência!")
 else:
     print("O ponto está fora da circunferência!")
+
+
+angles = linspace(0, 2 * pi)
+Xs = [xc + r * cos(ang) for ang in angles]
+Ys = [yc + r * sin(ang) for ang in angles]
+plt.plot(Xs, Ys)
+
+plt.plot(xp, yp, marker="P")
+
+plt.grid(True)
+plt.axhline(y=0, color="black", linewidth=1)
+plt.axvline(x=0, color="black", linewidth=1)
+plt.show()
